@@ -1,0 +1,46 @@
+body {
+    margin: 0;
+}
+.game { 
+    background-color: #64748b;
+    width: 100vw;
+    height: 100vh;
+    display: grid;
+    grid-template-rows: 1fr 4fr 1fr;
+    grid-template-columns: 1fr 2fr 1fr;
+}
+.gameBoard {
+    background-color: #f1f5f9;
+    grid-column: 2 / 3;
+    grid-row: 2 / 3;
+    display: grid;
+    grid-template-rows: 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+.player1 {
+    grid-column: 1 / 2;
+    grid-row: 2 / 3;
+    text-align: center;
+    font-weight: bold;
+}
+.player2 {
+    grid-column: 3 / 4;
+    grid-row: 2 / 3;
+    text-align: center;
+    font-weight: bold;
+}
+.header {
+    grid-column: 2 / 3;
+    grid-row: 1 / 2;
+    text-align: center;
+    margin-top: 5%;
+}
+.restartButton {
+    grid-row: 3 / 4;
+    grid-column: 2 / 3;
+    margin-top: 5%;
+}
+.topLeft {
+    border: solid 1px black;
+}
+.topMiddle
