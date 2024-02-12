@@ -9,6 +9,19 @@ let squareEight;
 let squareNine;
 let userOneCross = 'X';
 let userTwoNought = 'O';
+let playerOneScore = 0;
+let playerTwoScore = 0;
+
+//adding a query selector to all of the buttons
+const topLeft = document.querySelector('.topLeft');
+const topMiddle = document.querySelector('.topMiddle');
+const topRight = document.querySelector('.topRight');
+const middleLeft = document.querySelector('.middleLeft');
+const middleMiddle = document.querySelector('.middleMiddle');
+const middleRight = document.querySelector('.middleRight');
+const bottomLeft = document.querySelector('.bottomLeft');
+const bottomMiddle = document.querySelector('.bottomMiddle');
+const bottomRight = document.querySelector('.bottomRight');
 
 //This function after each turn will check if there are any winning combinations of turns
 function checkForWinner() {
@@ -64,9 +77,111 @@ function checkForWinner() {
         return 'No winners yet, continue game';
     }
 }
+//Function that adds a score to the leaderboard if someone wins
+function addToLeaderBoard(winner) {
+    if (winner === 'X Wins') {
+        playerOneScore += 1;
+    }
+    else if (winner === 'O Wins') {
+        playerTwoScore += 1;
+    }
+    else { 
+    }
+}
+
+function playGame () {
+    let counter = 1; //to keep track of whos turn it is
+    topLeft.addEventListener('click', function() {
+        if (counter % 2 !== 0) {
+            squareOne = userOneCross;
+        }
+        else {
+            squareOne = userTwoNought;
+        }
+        console.log(checkForWinner());
+        counter ++;
+    });
+    topMiddle.addEventListener('click', function() {
+        if (counter % 2 !== 0) {
+            squareTwo = userOneCross;
+        }
+        else {
+            squareTwo = userTwoNought;
+        }
+        console.log(checkForWinner());
+        counter ++;
+    });
+    topRight.addEventListener('click', function() {
+        if (counter % 2 !== 0) {
+            squareThree = userOneCross;
+        }
+        else {
+            squareThree = userTwoNought;
+        }
+        console.log(checkForWinner());
+        counter ++;
+    });
+    middleLeft.addEventListener('click', function() {
+        if (counter % 2 !== 0) {
+            squareFour = userOneCross;
+        }
+        else {
+            squareFour = userTwoNought;
+        }
+        console.log(checkForWinner());
+        counter ++;
+    });
+    middleMiddle.addEventListener('click', function() {
+        if (counter % 2 !== 0) {
+            squareFive = userOneCross;
+        }
+        else {
+            squareFive = userTwoNought;
+        }
+        console.log(checkForWinner());
+        counter ++;
+    });
+    middleRight.addEventListener('click', function() {
+        if (counter % 2 !== 0) {
+            squareSix = userOneCross;
+        }
+        else {
+            squareSix = userTwoNought;
+        }
+        console.log(checkForWinner());
+        counter ++;
+    });
+    bottomLeft.addEventListener('click', function() {
+        if (counter % 2 !== 0) {
+            squareSeven = userOneCross;
+        }
+        else {
+            squareSeven = userTwoNought;
+        }
+        console.log(checkForWinner());
+        counter ++;
+    });
+    bottomMiddle.addEventListener('click', function() {
+        if (counter % 2 !== 0) {
+            squareEight = userOneCross;
+        }
+        else {
+            squareEight = userTwoNought;
+        }
+        console.log(checkForWinner());
+        counter ++;
+    });
+    bottomRight.addEventListener('click', function() {
+        if (counter % 2 !== 0) {
+            squareNine = userOneCross;
+        }
+        else {
+            squareNine = userTwoNought;
+        }
+        console.log(checkForWinner());
+        counter ++;
+    });
+}
 
 
-
-
-
-
+playGame();
