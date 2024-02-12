@@ -40,7 +40,10 @@ body {
     grid-column: 2 / 3;
     margin-top: 5%;
 }
-.topLeft {
-    border: solid 1px black;
+.gameBoard div {
+    border: solid black 1px;
 }
-.topMiddle
+.gameBoard div p {
+    text-align: center;
+    font-size: 300%;
+}
