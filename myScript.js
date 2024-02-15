@@ -11,6 +11,8 @@ let userOneCross = 'X';
 let userTwoNought = 'O';
 let playerOneScore = 0;
 let playerTwoScore = 0;
+const player1Score = document.querySelector('.player1Score');
+const player2Score = document.querySelector('.player2Score');
 
 //adding a query selector to all of the buttons
 const topLeft = document.querySelector('.topLeft');
@@ -26,68 +28,92 @@ const bottomRight = document.querySelector('.bottomRight');
 //This function after each turn will check if there are any winning combinations of turns
 function checkForWinner() {
     if (squareOne === 'X' && squareTwo === 'X' && squareThree === 'X') {
-        return 'X Wins';
+        playerOneScore += 1;
+        displayScores();
+        
+         
     }
     else if (squareOne === 'X' && squareFour === 'X' && squareSeven === 'X') {
-        return 'X Wins';
+        playerOneScore += 1;
+        displayScores();
+        
     }
     else if (squareOne === 'X' && squareFive === 'X' && squareNine === 'X') {
-        return 'X Wins';
+        playerOneScore += 1;
+        displayScores();
     }
     else if (squareTwo === 'X' && squareFive === 'X' && squareEight === 'X') {
-        return 'X Wins';
+        playerOneScore += 1;
+        displayScores();
     }
     else if (squareThree === 'X' && squareSix === 'X' && squareNine === 'X') {
-        return 'X Wins';
+        playerOneScore += 1;
+        displayScores();
     }
     else if (squareThree === 'X' && squareFive === 'X' && squareSeven === 'X') {
-        return 'X Wins';
+        playerOneScore += 1;
+        displayScores();
     }
     else if (squareFour === 'X' && squareFive === 'X' && squareSix === 'X') {
-        return 'X Wins';
+        playerOneScore += 1;
+        displayScores();
     }
     else if (squareSeven === 'X' && squareEight === 'X' && squareNine === 'X') {
-        return 'X Wins';
+        playerOneScore += 1;
+        displayScores();
     }
     else if (squareOne === 'O' && squareTwo === 'O' && squareThree === 'O') {
-        return 'O Wins';
+        playerTwoScore += 1;
+        displayScores();
     }
     else if (squareOne === 'O' && squareFour === 'O' && squareSeven === 'O') {
-        return 'O Wins';
+        playerTwoScore += 1;
+        displayScores();
     }
     else if (squareOne === 'O' && squareFive === 'O' && squareNine === 'O') {
-        return 'O Wins';
+        playerTwoScore += 1;
+        displayScores();
     }
     else if (squareTwo === 'O' && squareFive === 'O' && squareEight === 'O') {
-        return 'O Wins';
+        playerTwoScore += 1;
+        displayScores();
     }
     else if (squareThree === 'O' && squareSix === 'O' && squareNine === 'O') {
-        return 'O Wins';
+        playerTwoScore += 1;
+        displayScores();
     }
     else if (squareThree === 'O' && squareFive === 'O' && squareSeven === 'O') {
-        return 'O Wins';
+        playerTwoScore += 1;
+        displayScores();
     }
     else if (squareFour === 'O' && squareFive === 'O' && squareSix === 'O') {
-        return 'O Wins';
+        playerTwoScore += 1;
+        displayScores();
     }
     else if (squareSeven === 'O' && squareEight === 'O' && squareNine === 'O') {
-        return 'O Wins'
+        playerTwoScore += 1;
+        displayScores();
     }
     else {
-        return 'No winners yet, continue game';
+        console.log('No winners yet');
     }
 }
-//Function that adds a score to the leaderboard if someone wins
-function addToLeaderBoard(winner) {
-    if (winner === 'X Wins') {
-        playerOneScore += 1;
-    }
-    else if (winner === 'O Wins') {
-        playerTwoScore += 1;
-    }
-    else { 
-    }
+
+function displayScores() {
+    player1Score.innerHTML = "";
+    player2Score.innerHTML = "";
+
+    const player1ScoreDisplay = document.createElement('p');
+    player1ScoreDisplay.classList.add('player1ScoreDisplay');
+    player1ScoreDisplay.textContent = (playerOneScore);
+    player1Score.appendChild(player1ScoreDisplay);
+
+    const player2ScoreDisplay = document.createElement('p');
+    player2ScoreDisplay.classList.add('player2ScoreDisplay');
+    player2ScoreDisplay.textContent = (playerTwoScore);
+    player2Score.appendChild(player2ScoreDisplay);
 }
+
 
 function playGame () {
 
@@ -112,7 +138,7 @@ function playGame () {
             contentOTopLeft.textContent = ('O');
             topLeft.appendChild(contentOTopLeft);
         }
-        console.log(checkForWinner());
+        checkForWinner();
         counter ++;
     });
     topMiddle.addEventListener('click', function() {
@@ -130,7 +156,7 @@ function playGame () {
             contentOTopMiddle.textContent = ('O');
             topMiddle.appendChild(contentOTopMiddle);
         }
-        console.log(checkForWinner());
+        checkForWinner();
         counter ++;
     });
     topRight.addEventListener('click', function() {
@@ -148,7 +174,7 @@ function playGame () {
             contentOTopRight.textContent = ('O');
             topRight.appendChild(contentOTopRight);
         }
-        console.log(checkForWinner());
+        checkForWinner();
         counter ++;
     });
     middleLeft.addEventListener('click', function() {
@@ -166,7 +192,7 @@ function playGame () {
             contentOMiddleLeft.textContent = ('O');
             middleLeft.appendChild(contentOMiddleLeft);
         }
-        console.log(checkForWinner());
+        checkForWinner();
         counter ++;
     });
     middleMiddle.addEventListener('click', function() {
@@ -184,7 +210,7 @@ function playGame () {
             contentOMiddleMiddle.textContent = ('O');
             middleMiddle.appendChild(contentOMiddleMiddle);
         }
-        console.log(checkForWinner());
+        checkForWinner();
         counter ++;
     });
     middleRight.addEventListener('click', function() {
@@ -202,7 +228,7 @@ function playGame () {
             contentOMiddleRight.textContent = ('O');
             middleRight.appendChild(contentOMiddleRight);
         }
-        console.log(checkForWinner());
+        checkForWinner();
         counter ++;
     });
     bottomLeft.addEventListener('click', function() {
@@ -220,7 +246,7 @@ function playGame () {
             contentOBottomLeft.textContent = ('O');
             bottomLeft.appendChild(contentOBottomLeft);
         }
-        console.log(checkForWinner());
+        checkForWinner();
         counter ++;
     });
     bottomMiddle.addEventListener('click', function() {
@@ -238,7 +264,7 @@ function playGame () {
             contentOBottomMiddle.textContent = ('O');
             bottomMiddle.appendChild(contentOBottomMiddle);
         }
-        console.log(checkForWinner());
+        checkForWinner();
         counter ++;
     });
     bottomRight.addEventListener('click', function() {
@@ -256,9 +282,10 @@ function playGame () {
             contentOBottomRight.textContent = ('O');
             bottomRight.appendChild(contentOBottomRight);
         }
-        console.log(checkForWinner());
+        checkForWinner();
         counter ++;
     });
+
 }
 
 
