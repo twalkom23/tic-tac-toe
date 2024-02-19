@@ -7,10 +7,12 @@ let squareSix
 let squareSeven;
 let squareEight;
 let squareNine;
+let counter;
 let userOneCross = 'X';
 let userTwoNought = 'O';
 let playerOneScore = 0;
 let playerTwoScore = 0;
+//query for score displays
 const player1Score = document.querySelector('.player1Score');
 const player2Score = document.querySelector('.player2Score');
 
@@ -24,6 +26,9 @@ const middleRight = document.querySelector('.middleRight');
 const bottomLeft = document.querySelector('.bottomLeft');
 const bottomMiddle = document.querySelector('.bottomMiddle');
 const bottomRight = document.querySelector('.bottomRight');
+//query selector for the restart and new game buttons
+const restartButton = document.querySelector('.restart');
+const newGameButton = document.querySelector('.newGame');
 
 //This function after each turn will check if there are any winning combinations of turns
 function checkForWinner() {
@@ -114,6 +119,29 @@ function displayScores() {
     player2Score.appendChild(player2ScoreDisplay);
 }
 
+function newGame() {
+    //empties the board of X and Os
+    topLeft.innerHTML = "";
+    topMiddle.innerHTML = "";
+    topRight.innerHTML = "";
+    middleLeft.innerHTML = "";
+    middleMiddle.innerHTML = "";
+    middleRight.innerHTML = "";
+    bottomLeft.innerHTML = "";
+    bottomMiddle.innerHTML = "";
+    bottomRight.innerHTML = "";
+
+    squareOne = undefined; 
+    squareTwo = undefined;
+    squareThree = undefined;
+    squareFour = undefined;
+    squareFive = undefined;
+    squareSix = undefined;
+    squareSeven = undefined;
+    squareEight = undefined;
+    squareNine = undefined;
+    
+}
 
 function playGame () {
 
@@ -121,15 +149,21 @@ function playGame () {
     contentX.classList.add('content');
     contentX.textContent = ('X');
 
+        
 
-    let counter = 1; //to keep track of whos turn it is
+
+     //to keep track of whos turn it is
+    counter = 1;
     topLeft.addEventListener('click', function() {
-        if (counter % 2 !== 0) {
+        if (squareOne !== undefined) {
+        }
+        else if (counter % 2 !== 0) {
             squareOne = userOneCross;
             const contentXTopLeft = document.createElement('p');
             contentXTopLeft.classList.add('contentXTopLeft');
             contentXTopLeft.textContent = ('X');
             topLeft.appendChild(contentXTopLeft);
+            counter ++;
         }
         else {
             squareOne = userTwoNought;
@@ -137,17 +171,22 @@ function playGame () {
             contentOTopLeft.classList.add('contentOTopLeft');
             contentOTopLeft.textContent = ('O');
             topLeft.appendChild(contentOTopLeft);
+            counter ++;
         }
         checkForWinner();
-        counter ++;
+        
     });
     topMiddle.addEventListener('click', function() {
-        if (counter % 2 !== 0) {
+        if (squareTwo !== undefined){
+
+        }
+        else if (counter % 2 !== 0) {
             squareTwo = userOneCross;
             const contentXTopMiddle = document.createElement('p');
             contentXTopMiddle.classList.add('contentXTopMiddle');
             contentXTopMiddle.textContent = ('X');
             topMiddle.appendChild(contentXTopMiddle);
+            counter ++;
         }
         else {
             squareTwo = userTwoNought;
@@ -155,17 +194,22 @@ function playGame () {
             contentOTopMiddle.classList.add('contentOTopMiddle');
             contentOTopMiddle.textContent = ('O');
             topMiddle.appendChild(contentOTopMiddle);
+            counter ++;
         }
         checkForWinner();
-        counter ++;
+        
     });
     topRight.addEventListener('click', function() {
-        if (counter % 2 !== 0) {
+        if (squareThree !== undefined) {
+
+        }
+        else if (counter % 2 !== 0) {
             squareThree = userOneCross;
             const contentXTopRight = document.createElement('p');
             contentXTopRight.classList.add('contentXTopRight');
             contentXTopRight.textContent = ('X');
             topRight.appendChild(contentXTopRight);
+            counter ++;
         }
         else {
             squareThree = userTwoNought;
@@ -173,17 +217,21 @@ function playGame () {
             contentOTopRight.classList.add('contentOTopRight');
             contentOTopRight.textContent = ('O');
             topRight.appendChild(contentOTopRight);
+            counter ++;
         }
         checkForWinner();
-        counter ++;
     });
     middleLeft.addEventListener('click', function() {
-        if (counter % 2 !== 0) {
+        if (squareFour !== undefined) {
+
+        }
+        else if (counter % 2 !== 0) {
             squareFour = userOneCross;
             const contentXMiddleLeft = document.createElement('p');
             contentXMiddleLeft.classList.add('contentXMiddleLeft');
             contentXMiddleLeft.textContent = ('X');
             middleLeft.appendChild(contentXMiddleLeft);
+            counter ++;
         }
         else {
             squareFour = userTwoNought;
@@ -191,17 +239,21 @@ function playGame () {
             contentOMiddleLeft.classList.add('contentOMiddleLeft');
             contentOMiddleLeft.textContent = ('O');
             middleLeft.appendChild(contentOMiddleLeft);
+            counter ++;
         }
         checkForWinner();
-        counter ++;
     });
     middleMiddle.addEventListener('click', function() {
-        if (counter % 2 !== 0) {
+        if (squareFive !== undefined) {
+
+        }
+        else if (counter % 2 !== 0) {
             squareFive = userOneCross;
             const contentXMiddleMiddle = document.createElement('p');
             contentXMiddleMiddle.classList.add('contentXMiddleMiddle');
             contentXMiddleMiddle.textContent = ('X');
             middleMiddle.appendChild(contentXMiddleMiddle);
+            counter ++;
         }
         else {
             squareFive = userTwoNought;
@@ -209,17 +261,21 @@ function playGame () {
             contentOMiddleMiddle.classList.add('contentOMiddleMiddle');
             contentOMiddleMiddle.textContent = ('O');
             middleMiddle.appendChild(contentOMiddleMiddle);
+            counter ++;
         }
         checkForWinner();
-        counter ++;
     });
     middleRight.addEventListener('click', function() {
-        if (counter % 2 !== 0) {
+        if (squareSix !== undefined) {
+
+        }
+        else if (counter % 2 !== 0) {
             squareSix = userOneCross;
             const contentXMiddleRight = document.createElement('p');
             contentXMiddleRight.classList.add('contentXMiddleRight');
             contentXMiddleRight.textContent = ('X');
             middleRight.appendChild(contentXMiddleRight);
+            counter ++;
         }
         else {
             squareSix = userTwoNought;
@@ -227,17 +283,21 @@ function playGame () {
             contentOMiddleRight.classList.add('contentOMiddleRight');
             contentOMiddleRight.textContent = ('O');
             middleRight.appendChild(contentOMiddleRight);
+            counter ++;
         }
         checkForWinner();
-        counter ++;
     });
     bottomLeft.addEventListener('click', function() {
-        if (counter % 2 !== 0) {
+        if (squareSeven !== undefined) {
+
+        }
+        else if (counter % 2 !== 0) {
             squareSeven = userOneCross;
             const contentXBottomLeft = document.createElement('p');
             contentXBottomLeft.classList.add('contentXBottomLeft');
             contentXBottomLeft.textContent = ('X');
             bottomLeft.appendChild(contentXBottomLeft);
+            counter ++;
         }
         else {
             squareSeven = userTwoNought;
@@ -245,17 +305,21 @@ function playGame () {
             contentOBottomLeft.classList.add('contentOBottomLeft');
             contentOBottomLeft.textContent = ('O');
             bottomLeft.appendChild(contentOBottomLeft);
+            counter ++;
         }
         checkForWinner();
-        counter ++;
     });
     bottomMiddle.addEventListener('click', function() {
-        if (counter % 2 !== 0) {
+        if (squareEight !== undefined) {
+
+        }
+        else if (counter % 2 !== 0) {
             squareEight = userOneCross;
             const contentXBottomMiddle = document.createElement('p');
             contentXBottomMiddle.classList.add('contentXBottomMiddle');
             contentXBottomMiddle.textContent = ('X');
             bottomMiddle.appendChild(contentXBottomMiddle);
+            counter ++;
         }
         else {
             squareEight = userTwoNought;
@@ -263,17 +327,21 @@ function playGame () {
             contentOBottomMiddle.classList.add('contentOBottomMiddle');
             contentOBottomMiddle.textContent = ('O');
             bottomMiddle.appendChild(contentOBottomMiddle);
+            counter ++;
         }
         checkForWinner();
-        counter ++;
     });
     bottomRight.addEventListener('click', function() {
-        if (counter % 2 !== 0) {
+        if (squareNine !== undefined) {
+
+        }
+        else if (counter % 2 !== 0) {
             squareNine = userOneCross;
             const contentXBottomRight = document.createElement('p');
             contentXBottomRight.classList.add('contentXBottomRight');
             contentXBottomRight.textContent = ('X');
             bottomRight.appendChild(contentXBottomRight);
+            counter ++;
         }
         else {
             squareNine = userTwoNought;
@@ -281,10 +349,16 @@ function playGame () {
             contentOBottomRight.classList.add('contentOBottomRight');
             contentOBottomRight.textContent = ('O');
             bottomRight.appendChild(contentOBottomRight);
+            counter ++;
         }
         checkForWinner();
-        counter ++;
     });
+    restartButton.addEventListener('click', function() {
+        
+    });
+    newGameButton.addEventListener('click', function() {
+        newGame();
+    }); 
 
 }
 
