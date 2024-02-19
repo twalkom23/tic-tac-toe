@@ -12,9 +12,13 @@ let userOneCross = 'X';
 let userTwoNought = 'O';
 let playerOneScore = 0;
 let playerTwoScore = 0;
+let winner = false;
 //query for score displays
 const player1Score = document.querySelector('.player1Score');
 const player2Score = document.querySelector('.player2Score');
+//To display whos turn it is
+const player1Turn = document.querySelector('.player1Turn');
+const player2Turn = document.querySelector('.player2Turn');
 
 //adding a query selector to all of the buttons
 const topLeft = document.querySelector('.topLeft');
@@ -34,69 +38,85 @@ const newGameButton = document.querySelector('.newGame');
 function checkForWinner() {
     if (squareOne === 'X' && squareTwo === 'X' && squareThree === 'X') {
         playerOneScore += 1;
+        winner = true;
         displayScores();
         
          
     }
     else if (squareOne === 'X' && squareFour === 'X' && squareSeven === 'X') {
         playerOneScore += 1;
+        winner = true;
         displayScores();
         
     }
     else if (squareOne === 'X' && squareFive === 'X' && squareNine === 'X') {
         playerOneScore += 1;
+        winner = true;
         displayScores();
     }
     else if (squareTwo === 'X' && squareFive === 'X' && squareEight === 'X') {
         playerOneScore += 1;
+        winner = true;
         displayScores();
     }
     else if (squareThree === 'X' && squareSix === 'X' && squareNine === 'X') {
         playerOneScore += 1;
+        winner = true;
         displayScores();
     }
     else if (squareThree === 'X' && squareFive === 'X' && squareSeven === 'X') {
         playerOneScore += 1;
+        winner = true;
         displayScores();
     }
     else if (squareFour === 'X' && squareFive === 'X' && squareSix === 'X') {
         playerOneScore += 1;
+        winner = true;
         displayScores();
     }
     else if (squareSeven === 'X' && squareEight === 'X' && squareNine === 'X') {
         playerOneScore += 1;
+        winner = true;
         displayScores();
     }
     else if (squareOne === 'O' && squareTwo === 'O' && squareThree === 'O') {
         playerTwoScore += 1;
+        winner = true;
         displayScores();
     }
     else if (squareOne === 'O' && squareFour === 'O' && squareSeven === 'O') {
         playerTwoScore += 1;
+        winner = true;
         displayScores();
     }
     else if (squareOne === 'O' && squareFive === 'O' && squareNine === 'O') {
         playerTwoScore += 1;
+        winner = true;
         displayScores();
     }
     else if (squareTwo === 'O' && squareFive === 'O' && squareEight === 'O') {
         playerTwoScore += 1;
+        winner = true;
         displayScores();
     }
     else if (squareThree === 'O' && squareSix === 'O' && squareNine === 'O') {
         playerTwoScore += 1;
+        winner = true;
         displayScores();
     }
     else if (squareThree === 'O' && squareFive === 'O' && squareSeven === 'O') {
         playerTwoScore += 1;
+        winner = true;
         displayScores();
     }
     else if (squareFour === 'O' && squareFive === 'O' && squareSix === 'O') {
         playerTwoScore += 1;
+        winner = true;
         displayScores();
     }
     else if (squareSeven === 'O' && squareEight === 'O' && squareNine === 'O') {
         playerTwoScore += 1;
+        winner = true;
         displayScores();
     }
     else {
@@ -141,6 +161,11 @@ function newGame() {
     squareEight = undefined;
     squareNine = undefined;
     
+    winner = false;
+}
+
+function displayTurn() {
+    
 }
 
 function playGame () {
@@ -155,7 +180,7 @@ function playGame () {
      //to keep track of whos turn it is
     counter = 1;
     topLeft.addEventListener('click', function() {
-        if (squareOne !== undefined) {
+        if (squareOne !== undefined || winner === true) {
         }
         else if (counter % 2 !== 0) {
             squareOne = userOneCross;
@@ -163,6 +188,7 @@ function playGame () {
             contentXTopLeft.classList.add('contentXTopLeft');
             contentXTopLeft.textContent = ('X');
             topLeft.appendChild(contentXTopLeft);
+            checkForWinner();
             counter ++;
         }
         else {
@@ -171,13 +197,14 @@ function playGame () {
             contentOTopLeft.classList.add('contentOTopLeft');
             contentOTopLeft.textContent = ('O');
             topLeft.appendChild(contentOTopLeft);
+            checkForWinner();
             counter ++;
         }
-        checkForWinner();
+        
         
     });
     topMiddle.addEventListener('click', function() {
-        if (squareTwo !== undefined){
+        if (squareTwo !== undefined || winner === true){
 
         }
         else if (counter % 2 !== 0) {
@@ -186,6 +213,7 @@ function playGame () {
             contentXTopMiddle.classList.add('contentXTopMiddle');
             contentXTopMiddle.textContent = ('X');
             topMiddle.appendChild(contentXTopMiddle);
+            checkForWinner();
             counter ++;
         }
         else {
@@ -194,13 +222,14 @@ function playGame () {
             contentOTopMiddle.classList.add('contentOTopMiddle');
             contentOTopMiddle.textContent = ('O');
             topMiddle.appendChild(contentOTopMiddle);
+            checkForWinner();
             counter ++;
         }
-        checkForWinner();
+        
         
     });
     topRight.addEventListener('click', function() {
-        if (squareThree !== undefined) {
+        if (squareThree !== undefined || winner === true) {
 
         }
         else if (counter % 2 !== 0) {
@@ -209,6 +238,7 @@ function playGame () {
             contentXTopRight.classList.add('contentXTopRight');
             contentXTopRight.textContent = ('X');
             topRight.appendChild(contentXTopRight);
+            checkForWinner();
             counter ++;
         }
         else {
@@ -217,12 +247,13 @@ function playGame () {
             contentOTopRight.classList.add('contentOTopRight');
             contentOTopRight.textContent = ('O');
             topRight.appendChild(contentOTopRight);
+            checkForWinner();
             counter ++;
         }
-        checkForWinner();
+        
     });
     middleLeft.addEventListener('click', function() {
-        if (squareFour !== undefined) {
+        if (squareFour !== undefined || winner === true) {
 
         }
         else if (counter % 2 !== 0) {
@@ -231,6 +262,7 @@ function playGame () {
             contentXMiddleLeft.classList.add('contentXMiddleLeft');
             contentXMiddleLeft.textContent = ('X');
             middleLeft.appendChild(contentXMiddleLeft);
+            checkForWinner();
             counter ++;
         }
         else {
@@ -239,12 +271,13 @@ function playGame () {
             contentOMiddleLeft.classList.add('contentOMiddleLeft');
             contentOMiddleLeft.textContent = ('O');
             middleLeft.appendChild(contentOMiddleLeft);
+            checkForWinner();
             counter ++;
         }
-        checkForWinner();
+        
     });
     middleMiddle.addEventListener('click', function() {
-        if (squareFive !== undefined) {
+        if (squareFive !== undefined || winner === true) {
 
         }
         else if (counter % 2 !== 0) {
@@ -253,6 +286,7 @@ function playGame () {
             contentXMiddleMiddle.classList.add('contentXMiddleMiddle');
             contentXMiddleMiddle.textContent = ('X');
             middleMiddle.appendChild(contentXMiddleMiddle);
+            checkForWinner();
             counter ++;
         }
         else {
@@ -261,12 +295,13 @@ function playGame () {
             contentOMiddleMiddle.classList.add('contentOMiddleMiddle');
             contentOMiddleMiddle.textContent = ('O');
             middleMiddle.appendChild(contentOMiddleMiddle);
+            checkForWinner();
             counter ++;
         }
-        checkForWinner();
+        
     });
     middleRight.addEventListener('click', function() {
-        if (squareSix !== undefined) {
+        if (squareSix !== undefined || winner === true) {
 
         }
         else if (counter % 2 !== 0) {
@@ -275,6 +310,7 @@ function playGame () {
             contentXMiddleRight.classList.add('contentXMiddleRight');
             contentXMiddleRight.textContent = ('X');
             middleRight.appendChild(contentXMiddleRight);
+            checkForWinner();
             counter ++;
         }
         else {
@@ -283,12 +319,13 @@ function playGame () {
             contentOMiddleRight.classList.add('contentOMiddleRight');
             contentOMiddleRight.textContent = ('O');
             middleRight.appendChild(contentOMiddleRight);
+            checkForWinner();
             counter ++;
         }
-        checkForWinner();
+        
     });
     bottomLeft.addEventListener('click', function() {
-        if (squareSeven !== undefined) {
+        if (squareSeven !== undefined || winner === true) {
 
         }
         else if (counter % 2 !== 0) {
@@ -297,6 +334,7 @@ function playGame () {
             contentXBottomLeft.classList.add('contentXBottomLeft');
             contentXBottomLeft.textContent = ('X');
             bottomLeft.appendChild(contentXBottomLeft);
+            checkForWinner();
             counter ++;
         }
         else {
@@ -305,12 +343,13 @@ function playGame () {
             contentOBottomLeft.classList.add('contentOBottomLeft');
             contentOBottomLeft.textContent = ('O');
             bottomLeft.appendChild(contentOBottomLeft);
+            checkForWinner();
             counter ++;
         }
-        checkForWinner();
+        
     });
     bottomMiddle.addEventListener('click', function() {
-        if (squareEight !== undefined) {
+        if (squareEight !== undefined || winner === true) {
 
         }
         else if (counter % 2 !== 0) {
@@ -319,6 +358,7 @@ function playGame () {
             contentXBottomMiddle.classList.add('contentXBottomMiddle');
             contentXBottomMiddle.textContent = ('X');
             bottomMiddle.appendChild(contentXBottomMiddle);
+            checkForWinner();
             counter ++;
         }
         else {
@@ -327,12 +367,13 @@ function playGame () {
             contentOBottomMiddle.classList.add('contentOBottomMiddle');
             contentOBottomMiddle.textContent = ('O');
             bottomMiddle.appendChild(contentOBottomMiddle);
+            checkForWinner();
             counter ++;
         }
-        checkForWinner();
+       
     });
     bottomRight.addEventListener('click', function() {
-        if (squareNine !== undefined) {
+        if (squareNine !== undefined || winner === true) {
 
         }
         else if (counter % 2 !== 0) {
@@ -341,6 +382,7 @@ function playGame () {
             contentXBottomRight.classList.add('contentXBottomRight');
             contentXBottomRight.textContent = ('X');
             bottomRight.appendChild(contentXBottomRight);
+            checkForWinner();
             counter ++;
         }
         else {
@@ -349,9 +391,10 @@ function playGame () {
             contentOBottomRight.classList.add('contentOBottomRight');
             contentOBottomRight.textContent = ('O');
             bottomRight.appendChild(contentOBottomRight);
+            checkForWinner();
             counter ++;
         }
-        checkForWinner();
+
     });
     restartButton.addEventListener('click', function() {
         
