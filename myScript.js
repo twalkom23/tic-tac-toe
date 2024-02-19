@@ -163,11 +163,25 @@ function newGame() {
     
     winner = false;
 }
-
+//displays on the screen whos turn it is
 function displayTurn() {
-    
+    if (counter % 2 !== 0) {
+        const leftDisplay = document.createElement('p');
+        leftDisplay.classList.add('leftDisplay');
+        leftDisplay.textContent = ('PLAYER 1 TURN - X');
+        player2Turn.innerHTML = " ";
+        player1Turn.appendChild(leftDisplay);
+    }
+    else {
+        const rightDisplay = document.createElement('p');
+        rightDisplay.classList.add('rightDisplay');
+        rightDisplay.textContent = ('PLAYER 2 TURN - O');
+        player1Turn.innerHTML = " ";
+        player2Turn.appendChild(rightDisplay);
+    }
 }
 
+//Main function of the game
 function playGame () {
 
     const contentX = document.createElement('p');
@@ -179,6 +193,7 @@ function playGame () {
 
      //to keep track of whos turn it is
     counter = 1;
+    displayTurn();
     topLeft.addEventListener('click', function() {
         if (squareOne !== undefined || winner === true) {
         }
@@ -190,6 +205,7 @@ function playGame () {
             topLeft.appendChild(contentXTopLeft);
             checkForWinner();
             counter ++;
+            displayTurn();
         }
         else {
             squareOne = userTwoNought;
@@ -199,7 +215,9 @@ function playGame () {
             topLeft.appendChild(contentOTopLeft);
             checkForWinner();
             counter ++;
+            displayTurn();
         }
+        
         
         
     });
@@ -215,6 +233,7 @@ function playGame () {
             topMiddle.appendChild(contentXTopMiddle);
             checkForWinner();
             counter ++;
+            displayTurn();
         }
         else {
             squareTwo = userTwoNought;
@@ -224,6 +243,7 @@ function playGame () {
             topMiddle.appendChild(contentOTopMiddle);
             checkForWinner();
             counter ++;
+            displayTurn();
         }
         
         
@@ -240,6 +260,7 @@ function playGame () {
             topRight.appendChild(contentXTopRight);
             checkForWinner();
             counter ++;
+            displayTurn();
         }
         else {
             squareThree = userTwoNought;
@@ -249,8 +270,9 @@ function playGame () {
             topRight.appendChild(contentOTopRight);
             checkForWinner();
             counter ++;
+            displayTurn();
         }
-        
+       
     });
     middleLeft.addEventListener('click', function() {
         if (squareFour !== undefined || winner === true) {
@@ -264,6 +286,7 @@ function playGame () {
             middleLeft.appendChild(contentXMiddleLeft);
             checkForWinner();
             counter ++;
+            displayTurn();
         }
         else {
             squareFour = userTwoNought;
@@ -273,6 +296,7 @@ function playGame () {
             middleLeft.appendChild(contentOMiddleLeft);
             checkForWinner();
             counter ++;
+            displayTurn();
         }
         
     });
@@ -288,6 +312,7 @@ function playGame () {
             middleMiddle.appendChild(contentXMiddleMiddle);
             checkForWinner();
             counter ++;
+            displayTurn();
         }
         else {
             squareFive = userTwoNought;
@@ -297,8 +322,9 @@ function playGame () {
             middleMiddle.appendChild(contentOMiddleMiddle);
             checkForWinner();
             counter ++;
+            displayTurn();
         }
-        
+       
     });
     middleRight.addEventListener('click', function() {
         if (squareSix !== undefined || winner === true) {
@@ -312,6 +338,7 @@ function playGame () {
             middleRight.appendChild(contentXMiddleRight);
             checkForWinner();
             counter ++;
+            displayTurn();
         }
         else {
             squareSix = userTwoNought;
@@ -321,6 +348,7 @@ function playGame () {
             middleRight.appendChild(contentOMiddleRight);
             checkForWinner();
             counter ++;
+            displayTurn();
         }
         
     });
@@ -336,6 +364,7 @@ function playGame () {
             bottomLeft.appendChild(contentXBottomLeft);
             checkForWinner();
             counter ++;
+            displayTurn();
         }
         else {
             squareSeven = userTwoNought;
@@ -345,6 +374,7 @@ function playGame () {
             bottomLeft.appendChild(contentOBottomLeft);
             checkForWinner();
             counter ++;
+            displayTurn();
         }
         
     });
@@ -360,6 +390,7 @@ function playGame () {
             bottomMiddle.appendChild(contentXBottomMiddle);
             checkForWinner();
             counter ++;
+            displayTurn();
         }
         else {
             squareEight = userTwoNought;
@@ -369,8 +400,9 @@ function playGame () {
             bottomMiddle.appendChild(contentOBottomMiddle);
             checkForWinner();
             counter ++;
+            displayTurn();
         }
-       
+        
     });
     bottomRight.addEventListener('click', function() {
         if (squareNine !== undefined || winner === true) {
@@ -384,6 +416,7 @@ function playGame () {
             bottomRight.appendChild(contentXBottomRight);
             checkForWinner();
             counter ++;
+            displayTurn();
         }
         else {
             squareNine = userTwoNought;
@@ -393,8 +426,9 @@ function playGame () {
             bottomRight.appendChild(contentOBottomRight);
             checkForWinner();
             counter ++;
+            displayTurn();
         }
-
+        
     });
     restartButton.addEventListener('click', function() {
         
