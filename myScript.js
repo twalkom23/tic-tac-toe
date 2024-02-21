@@ -120,7 +120,7 @@ function checkForWinner() {
         displayScores();
     }
     else {
-        console.log('No winners yet');
+        
     }
 }
 
@@ -138,7 +138,16 @@ function displayScores() {
     player2ScoreDisplay.textContent = (playerTwoScore);
     player2Score.appendChild(player2ScoreDisplay);
 }
-
+//To reset all the scores and moves
+function restartGame() {
+    newGame();
+    playerOneScore = 0;
+    playerTwoScore = 0;
+    displayScores();
+    counter = 1;
+    displayTurn();
+    
+}
 function newGame() {
     //empties the board of X and Os
     topLeft.innerHTML = "";
@@ -184,9 +193,6 @@ function displayTurn() {
 //Main function of the game
 function playGame () {
 
-    const contentX = document.createElement('p');
-    contentX.classList.add('content');
-    contentX.textContent = ('X');
 
         
 
@@ -202,6 +208,7 @@ function playGame () {
             const contentXTopLeft = document.createElement('p');
             contentXTopLeft.classList.add('contentXTopLeft');
             contentXTopLeft.textContent = ('X');
+            contentXTopLeft.style.color = "#22c55e";
             topLeft.appendChild(contentXTopLeft);
             checkForWinner();
             counter ++;
@@ -212,6 +219,7 @@ function playGame () {
             const contentOTopLeft = document.createElement('p');
             contentOTopLeft.classList.add('contentOTopLeft');
             contentOTopLeft.textContent = ('O');
+            contentOTopLeft.style.color = "#f87171";
             topLeft.appendChild(contentOTopLeft);
             checkForWinner();
             counter ++;
@@ -230,6 +238,7 @@ function playGame () {
             const contentXTopMiddle = document.createElement('p');
             contentXTopMiddle.classList.add('contentXTopMiddle');
             contentXTopMiddle.textContent = ('X');
+            contentXTopMiddle.style.color = "#22c55e";
             topMiddle.appendChild(contentXTopMiddle);
             checkForWinner();
             counter ++;
@@ -240,6 +249,7 @@ function playGame () {
             const contentOTopMiddle = document.createElement('p');
             contentOTopMiddle.classList.add('contentOTopMiddle');
             contentOTopMiddle.textContent = ('O');
+            contentOTopMiddle.style.color = "#f87171";
             topMiddle.appendChild(contentOTopMiddle);
             checkForWinner();
             counter ++;
@@ -257,6 +267,7 @@ function playGame () {
             const contentXTopRight = document.createElement('p');
             contentXTopRight.classList.add('contentXTopRight');
             contentXTopRight.textContent = ('X');
+            contentXTopRight.style.color = "#22c55e";
             topRight.appendChild(contentXTopRight);
             checkForWinner();
             counter ++;
@@ -267,6 +278,7 @@ function playGame () {
             const contentOTopRight = document.createElement('p');
             contentOTopRight.classList.add('contentOTopRight');
             contentOTopRight.textContent = ('O');
+            contentOTopRight.style.color = "#f87171";
             topRight.appendChild(contentOTopRight);
             checkForWinner();
             counter ++;
@@ -283,6 +295,7 @@ function playGame () {
             const contentXMiddleLeft = document.createElement('p');
             contentXMiddleLeft.classList.add('contentXMiddleLeft');
             contentXMiddleLeft.textContent = ('X');
+            contentXMiddleLeft.style.color = "#22c55e";
             middleLeft.appendChild(contentXMiddleLeft);
             checkForWinner();
             counter ++;
@@ -293,6 +306,7 @@ function playGame () {
             const contentOMiddleLeft = document.createElement('p');
             contentOMiddleLeft.classList.add('contentOMiddleLeft');
             contentOMiddleLeft.textContent = ('O');
+            contentOMiddleLeft.style.color = "#f87171";
             middleLeft.appendChild(contentOMiddleLeft);
             checkForWinner();
             counter ++;
@@ -309,6 +323,7 @@ function playGame () {
             const contentXMiddleMiddle = document.createElement('p');
             contentXMiddleMiddle.classList.add('contentXMiddleMiddle');
             contentXMiddleMiddle.textContent = ('X');
+            contentXMiddleMiddle.style.color = "#22c55e";
             middleMiddle.appendChild(contentXMiddleMiddle);
             checkForWinner();
             counter ++;
@@ -319,6 +334,7 @@ function playGame () {
             const contentOMiddleMiddle = document.createElement('p');
             contentOMiddleMiddle.classList.add('contentOMiddleMiddle');
             contentOMiddleMiddle.textContent = ('O');
+            contentOMiddleMiddle.style.color = "#f87171";
             middleMiddle.appendChild(contentOMiddleMiddle);
             checkForWinner();
             counter ++;
@@ -335,6 +351,7 @@ function playGame () {
             const contentXMiddleRight = document.createElement('p');
             contentXMiddleRight.classList.add('contentXMiddleRight');
             contentXMiddleRight.textContent = ('X');
+            contentXMiddleRight.style.color = "#22c55e";
             middleRight.appendChild(contentXMiddleRight);
             checkForWinner();
             counter ++;
@@ -345,6 +362,7 @@ function playGame () {
             const contentOMiddleRight = document.createElement('p');
             contentOMiddleRight.classList.add('contentOMiddleRight');
             contentOMiddleRight.textContent = ('O');
+            contentOMiddleRight.style.color = "#f87171";
             middleRight.appendChild(contentOMiddleRight);
             checkForWinner();
             counter ++;
@@ -361,6 +379,7 @@ function playGame () {
             const contentXBottomLeft = document.createElement('p');
             contentXBottomLeft.classList.add('contentXBottomLeft');
             contentXBottomLeft.textContent = ('X');
+            contentXBottomLeft.style.color = "#22c55e";
             bottomLeft.appendChild(contentXBottomLeft);
             checkForWinner();
             counter ++;
@@ -371,6 +390,7 @@ function playGame () {
             const contentOBottomLeft = document.createElement('p');
             contentOBottomLeft.classList.add('contentOBottomLeft');
             contentOBottomLeft.textContent = ('O');
+            contentOBottomLeft.style.color = "#f87171";
             bottomLeft.appendChild(contentOBottomLeft);
             checkForWinner();
             counter ++;
@@ -387,6 +407,7 @@ function playGame () {
             const contentXBottomMiddle = document.createElement('p');
             contentXBottomMiddle.classList.add('contentXBottomMiddle');
             contentXBottomMiddle.textContent = ('X');
+            contentXBottomMiddle.style.color = "#22c55e";
             bottomMiddle.appendChild(contentXBottomMiddle);
             checkForWinner();
             counter ++;
@@ -397,6 +418,7 @@ function playGame () {
             const contentOBottomMiddle = document.createElement('p');
             contentOBottomMiddle.classList.add('contentOBottomMiddle');
             contentOBottomMiddle.textContent = ('O');
+            contentOBottomMiddle.style.color = "#f87171";
             bottomMiddle.appendChild(contentOBottomMiddle);
             checkForWinner();
             counter ++;
@@ -413,6 +435,7 @@ function playGame () {
             const contentXBottomRight = document.createElement('p');
             contentXBottomRight.classList.add('contentXBottomRight');
             contentXBottomRight.textContent = ('X');
+            contentXBottomRight.style.color = "#22c55e";
             bottomRight.appendChild(contentXBottomRight);
             checkForWinner();
             counter ++;
@@ -423,6 +446,7 @@ function playGame () {
             const contentOBottomRight = document.createElement('p');
             contentOBottomRight.classList.add('contentOBottomRight');
             contentOBottomRight.textContent = ('O');
+            contentOBottomRight.style.color = "#f87171";
             bottomRight.appendChild(contentOBottomRight);
             checkForWinner();
             counter ++;
@@ -431,7 +455,7 @@ function playGame () {
         
     });
     restartButton.addEventListener('click', function() {
-        
+        restartGame();
     });
     newGameButton.addEventListener('click', function() {
         newGame();

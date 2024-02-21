@@ -47,3 +47,13 @@ body {
     text-align: center;
     font-size: 300%;
 }
+.player1Turn {
+    color: #22c55e;
+    font-size: large;
+    font-weight: bold;
+}
+.player2Turn {
+    color: #f87171;
+    font-size: large;
+    font-weight: bold;
+}
